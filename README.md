@@ -7,7 +7,7 @@ A Python package for working with datasets from the UK Data Service (UKDS)
 
 ## Quick Demo
 
-(This demonstration uses the following dataset: *Gershuny, J., Sullivan, O. (2017). United Kingdom Time Use Survey, 2014-2015. Centre for Time Use Research, University of Oxford. [data collection]. UK Data Service. SN: 8128, <http://doi.org/10.5255/UKDA-SN-8128-1*>)
+(This demonstration uses the following dataset: *Gershuny, J., Sullivan, O. (2017). United Kingdom Time Use Survey, 2014-2015. Centre for Time Use Research, University of Oxford. [data collection]. UK Data Service. SN: 8128, <http://doi.org/10.5255/UKDA-SN-8128-1>*)
 
 The **DataDictionary** class provides access to UKDS .rtf data dictionary files:
 
