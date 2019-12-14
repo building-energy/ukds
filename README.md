@@ -32,22 +32,96 @@ The ukds package provides two classes:
 
 The DataTable class converts a UKDS .tab data file and .rtf data dictionary file into a single Pandas DataFrame ready for further analysis.
 
+#### Importing the DataTable class
+
+```python
+from ukds import DataTable
+```
+
+#### Creating an instance of DataTable and reading in the data file and the datadictionary file
+
+Either:
+
+```python
+dt=DataTable()
+dt.read_tab(r'.../uktus15_household.tab')
+df.read_datadictionary(r'.../uktus15_household_ukda_data_dictionary.rtf')
+```
+
+or:
+
+```python
+dt=DataTable(fp_tab=r'.../uktus15_household.tab',
+             fp_dd=r'.../uktus15_household_ukda_data_dictionary.rtf')
+```
+
+#### Attributes
+
+As the files are read in, a number of attributes are populated. These are:
+
+```python
+dt.tab				# a pandas.DataFrame object
+dt.datadictionary	# a ukds.DataDictionary object
+```
+
+#### get_dataframe method
+
+The method `get_dataframe` is available which converts the information in the `tab` and `datadictionary` attributes into a new pandas DataFrame.
+
+```python
+dt=df.get_dataframe()
+```
 
 See the [datatable_demo.ipynb](https://nbviewer.jupyter.org/github/building-energy/ukds/blob/master/demo/datatable_demo.ipynb) Jupyter Notebook in the 'demo' section for more information.
+
+
 
 
 ### The `DataDictionary` class
 
 The **DataDictionary** class provides access to UKDS .rtf data dictionary files.
 
-An example of its use is:
+#### Importing the DataDictionary class
 
 ```python
->>> import ukds
->>> dd=UKDS.DataDictionary(r'.../uktus15_household_ukda_data_dictionary.rtf')
->>> serial=dd.get_variable_dict('serial')
->>> print(serial)
+from ukds import DataDictionary
+```
 
+#### Creating an instance of DataTable and reading in the data file and the datadictionary file
+
+Either:
+
+```python
+dd=DataDictionary()
+dd.read_rtf(r'.../uktus15_household_ukda_data_dictionary.rtf')
+```
+
+or:
+
+```python
+dd=DataDictionary(fp_dd=r'.../uktus15_household_ukda_data_dictionary.rtf')
+```
+
+#### Attributes
+
+As the file are read in, a number of attributes are populated. These are:
+
+```python
+dt.rtf				# a string of the raw contents of the rtf file
+dt.variablelist		# a list of dictionaries with the variable information
+```
+
+#### get_variable_dict method
+
+Returns a dictionary with the information for a single variable. For example:
+
+```python
+serial=dd.get_variable_dict('serial')
+```
+
+returns:
+
+```python
 {'pos': '1',
  'variable': 'serial',
  'variable_label': 'Household number',
@@ -57,7 +131,15 @@ An example of its use is:
  'value_labels': ''}
 ```
 
-For a full description, see the [datadictionary_demo.ipynb](https://nbviewer.jupyter.org/github/building-energy/ukds/blob/master/demo/datadictionary_demo.ipynb) Jupyter Notebook in the 'demo' section.
+#### get_variable_names method
+
+Returns a list of the variable names:
+
+```python
+dd.get_variable_names()
+```
+
+See the [datadictionary_demo.ipynb](https://nbviewer.jupyter.org/github/building-energy/ukds/blob/master/demo/datadictionary_demo.ipynb) Jupyter Notebook in the 'demo' section for more examples based on this class.
 
 
 
