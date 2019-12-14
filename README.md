@@ -1,9 +1,11 @@
 # ukds
-A Python package for working with datasets from the UK Data Service (UKDS)
+A Python package for working with datasets from the UK Data Service (UKDS).
 
+Any problems? [Please raise an Issue on GitHub](https://github.com/building-energy/ukds/issues)
 
+## To install:
 
-
+`pip install ukds`
 
 ## Quick Demo
 
@@ -22,19 +24,23 @@ The DataFrame looks like this:
 
 ![dataframe_screenshot](https://github.com/building-energy/ukds/raw/master/DataTable_screenshot.png)
 
+##  User Guide
+
+The ukds package provides two classes:
+
+### The `DataTable` class
+
+The DataTable class converts a UKDS .tab data file and .rtf data dictionary file into a single Pandas DataFrame ready for further analysis.
 
 
+See the [datatable_demo.ipynb](https://nbviewer.jupyter.org/github/building-energy/ukds/blob/master/demo/datatable_demo.ipynb) Jupyter Notebook in the 'demo' section for more information.
 
 
+### The `DataDictionary` class
 
+The **DataDictionary** class provides access to UKDS .rtf data dictionary files.
 
-
-
-
-
-
-
-The **DataDictionary** class provides access to UKDS .rtf data dictionary files:
+An example of its use is:
 
 ```python
 >>> import ukds
@@ -51,17 +57,10 @@ The **DataDictionary** class provides access to UKDS .rtf data dictionary files:
  'value_labels': ''}
 ```
 
+For a full description, see the [datadictionary_demo.ipynb](https://nbviewer.jupyter.org/github/building-energy/ukds/blob/master/demo/datadictionary_demo.ipynb) Jupyter Notebook in the 'demo' section.
 
 
 
 
 
-
-
-
-## DataDictionary class
-
-
-
-See <https://nbviewer.jupyter.org/github/building-energy/ukds/blob/master/demo/datadictionary_demo.ipynb>
 
